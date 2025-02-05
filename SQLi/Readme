@@ -1,4 +1,10 @@
 Mass hunting exposed git from a ASN/IP with hednsextractor.
+<h1>
+    [Explained command]
+</h1>
+hednsextractor -target "your target" -silent | httpx -path /.git/config -status-code -ms 200 -silent
+
+Search to Hackers.Mass hunting exposed git from a ASN/IP with hednsextractor.
 
     [Explained command]
 

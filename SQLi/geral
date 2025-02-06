@@ -6,6 +6,7 @@ https://www.youtube.com/watch?v=Eu1_LbUzdR0
 Exemplos:
 https://www.invicti.com/blog/web-security/sql-injection-cheat-sheet/
 https://owasp.org/www-community/attacks/SQL_Injection_Bypassing_WAF
+https://github.com/OWASP/www-community/blob/master/pages/attacks/SQL_Injection_Bypassing_WAF.md
 
 Comando utilizados nos parametros
 [DATA]'--

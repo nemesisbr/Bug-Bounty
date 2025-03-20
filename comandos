@@ -41,6 +41,7 @@ cat nowaf_subs_domain.com.txt | grep 403 | awk '{print $1}'
 Search links
 --------------------------------------
 katana -u subdomains_alive.txt -d 5 -ps -pss waybackarchive, commoncrawl, alienvault -hf -jc -fx -ef woff, css, png, svg, jpg, woff2, jpeg, gif, svg -o allurls.txt
+katana -u www.target.com.br -v -d 5 -ef woff, css, png, svg, jpg, woff2, jpeg, gif, svg -o allurlspref.txt
 
 cat alive.txt | gau --threads 100 > gau.txt
 cat alive.txt | hakrawler -t 100 > hakrawler.txt --opcional

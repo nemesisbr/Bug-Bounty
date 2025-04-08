@@ -76,6 +76,8 @@ LFI
 ------------
 cat allurls.txt | gf lfi | nuclei -tags Lfi
 
+file:///etc/passwd
+
 XSS
 -------------
 https://www.intigriti.com/researchers/blog/hacking-tools/hunting-for-blind-cross-site-scripting-xss-vulnerabilities-a-complete-guide

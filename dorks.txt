@@ -23,3 +23,34 @@ inurl:include | inurl:dir | inurl:detail= | inurl:file= | inurl:folder= | inurl:
 ⛔️RCE Prone Parameters
 
 inurl:cmd | inurl:exec= | inurl:query= | inurl:code= | inurl:do= | inurl:run= | inurl:read=  | inurl:ping= inurl:& site:example[.]com
+
+⛔️google dork to find senstive files on website: 
+site:*.dell.com (ext:doc OR ext:docx OR ext:odt OR ext:pdf OR ext:rtf OR ext:ppt OR ext:pptx OR ext:csv OR ext:xls OR ext:xlsx OR ext:txt OR ext:xml OR ext:json OR ext:zip OR ext:rar OR ext:md OR ext:log OR ext:bak OR ext:conf OR ext:sql)
+
+1. Exposed .env Files
+intitle:"Index of" ".env"
+"DB_PASSWORD" filetype:env
+"APP_ENV=local" | "DB_HOST=127.0.0.1 (https://127.0.0.1/)"
+
+
+2. Exposed SQLite Databases
+intitle:"Index of" ".sqlite"
+intitle:"Index of" "db.sqlite"
+filetype:sqlite | filetype:sqlite3 | filetype:db
+
+
+3. Misconfigured Laravel or Public Folder Exposure
+inurl:/public/.env
+inurl:/public/db.sqlite
+intitle:"Index of" inurl:/public/
+
+
+4. Backup / Config Files (often contain sensitive info)
+intitle:"Index of" "backup"
+intitle:"Index of" "config"
+ext:sql | ext:bak | ext:old | ext:backup
+
+
+5. Generic Index Dump
+intitle:"Index of /" +passwd
+intitle:"Index of /" +passwords

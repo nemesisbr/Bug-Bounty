@@ -67,6 +67,11 @@ cat js.txt | nuclei -t /home/coffinxp/nuclei-templates/http/exposures/ -c 30
 cat js.txt | nuclei -t /home/coffinxp/nuclei-templates -severity 'high,medium,critical'
 nuclei -l live_subs_domain.com.txt -rl 10 -bs 2 -c 2 -as -silent -s critical,high,medium
 
+python3 jsninja.py -u http://example.com/script.js --secrets --urls
+
+--methodts
+https://gist.github.com/pikpikcu/b034a7e3b8bf966a6eba95acb1fbfe08
+
 CORSY
 ------------
 python corsy.py -i /home/coffinxp/waitor/subdomains_alive.txt -t 10 --headers "User-Agent: GoogleBot\nCookie: SESSION=Hacked"

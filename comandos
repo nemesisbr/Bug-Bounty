@@ -40,6 +40,7 @@ cat nowaf_subs_domain.com.txt | grep 403 | awk '{print $1}'
 
 Search links
 --------------------------------------
+font:https://github.com/projectdiscovery/katana/
 katana -u www.target.com.br -v -d 3 -fx -aff -jc -kf -iqp -ef woff, css, png, svg, jpg, woff2, jpeg, gif, svg | tee > allurlspref.txt
 katana -u www.target.com.br -v -d 5 -ef woff, css, png, svg, jpg, woff2, jpeg, gif, svg -o allurlspref.txt
 
@@ -68,7 +69,9 @@ cat js.txt | nuclei -t /home/coffinxp/nuclei-templates -severity 'high,medium,cr
 nuclei -l live_subs_domain.com.txt -rl 10 -bs 2 -c 2 -as -silent -s critical,high,medium
 
 python3 jsninja.py -u http://example.com/script.js --secrets --urls
-cat testphp.vulnweb.com.lfi.txt | while read urls; do python3 jsninja -u $urls --secrets --url; done
+python3 jsninja.py -o saida.txt --secrets --urls entrada.txt
+
+python3 /home/pen/getsrc.py https://www.paypal.com/
 
 --methodts
 https://gist.github.com/pikpikcu/b034a7e3b8bf966a6eba95acb1fbfe08

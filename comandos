@@ -44,6 +44,9 @@ font:https://github.com/projectdiscovery/katana/
 katana -u www.target.com.br -v -d 3 -fx -aff -jc -kf -iqp -ef woff, css, png, svg, jpg, woff2, jpeg, gif, svg | tee > allurlspref.txt
 katana -u www.target.com.br -v -d 5 -ef woff, css, png, svg, jpg, woff2, jpeg, gif, svg -o allurlspref.txt
 
+[post/get/links]
+katana -u http://testphp.vulnweb.com -v -fx -aff -d 3
+
 cat alive.txt | gau --threads 100 > gau.txt
 cat alive.txt | hakrawler -t 100 > hakrawler.txt --opcional
 

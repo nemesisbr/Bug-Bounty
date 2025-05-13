@@ -40,3 +40,5 @@ Extrair URLS com parâmetro (=) de sites para serem utilizadas em chamadas GET (
 User-Agent
 font:https://hackerone.com/reports/2599826
 Mozilla/5.0 (Macintosh; U; PPC Mac OS X; en-us) AppleWebKit/523.10.3 (KHTML, like Gecko) Version/3.0.4 Safari/523.10' AND 8074=8074-- KwOG
+
+https://leakbase.la/threads/blind-sql-injection-detection-and-exploitation-cheat-sheet.7223/

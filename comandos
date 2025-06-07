@@ -10,6 +10,8 @@ curl -s "https://otx.alienvault.com/api/v1/indicators/hostname/domain.com/passiv
 curl -s "https://urlscan.io/api/v1/search/?q=domain:domain.com&size=10000" | jq -r '.results[]?.page?.domain' | grep -E "^[a-zA-Z0-9.-]+\.domain\.com$" | sort -u | tee urlscan_subs.txt
 curl -s "http://web.archive.org/cdx/search/cdx?url=*.domain.com/*&output=json&collapse=urlkey" | jq -r '.[1:][] | .[2]' | grep -Eo '([a-zA-Z0-9._-]+\.)?domain\.com' | sort -u | tee webarcive_subs.txt
 
+curl -G "http://web.archive.org/cdx/search/cdx" --data-urlencode="url=*.domain.com/*" --data-urlencode="collapse=urlkey" --data-urlencode="output=text" --data-urlencode="fl=original" > output.txt
+
 cat *.txt | sort -u > all_subdomais.txt
 
 Filtering live hosts with httpx🚨

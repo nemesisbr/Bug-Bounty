@@ -2,6 +2,7 @@ RECON Subdomain 🌐️
 -----------------------------
 ```bash
 subfinder -d target.com -all -recursive -o subfinder.txt
+```
 shodanx subdomain -d target.com -ra -o shodax.txt
 amass enum -active -norecursive -noalts -d target.com -o amass.txt
 gobuster dns -d cengage.co.in -w /usr/share/wordlists/subdomain_megalist.txt -o gobuster.txt

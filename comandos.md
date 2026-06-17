@@ -20,6 +20,7 @@ cat output.txt | uro | grep -E '\.xls|.xml|\.xlsx|\.json|\.pdf|\.sql|\.doc|\.doc
 
 Filtering live hosts with httpx🚨
 ---------------------------------
+```bash
 cat subs_domain.txt | httpx -td -title -sc -ip > httpx_domain.com.txt
 cat httpx_domain.com.txt | awk '{print $1}' > live_subs_domain.com.txt
 httpx -l all_subdomais.txt -ports 80,443,3306,5432,5900,6379,8000,8080,8081,8082,8083,8443,8888,9090,10000,15672,27017 -threads 2 -o alive.txt

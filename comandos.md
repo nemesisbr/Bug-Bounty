@@ -3,9 +3,15 @@ RECON Subdomain 🌐️
 ```bash
 subfinder -d target.com -all -recursive -o subfinder.txt
 ```
+```bash
 shodanx subdomain -d target.com -ra -o shodax.txt
+```
+```bash
 amass enum -active -norecursive -noalts -d target.com -o amass.txt
+```
+```bash
 gobuster dns -d cengage.co.in -w /usr/share/wordlists/subdomain_megalist.txt -o gobuster.txt
+```
 
 curl -s https://crt.sh/\?q\=\%.$1\&output\=json | jq -r '.[].name_value' | sed 's/\*\.//g' | sort -u | tee -a subs_domain.txt
 curl -s "https://otx.alienvault.com/api/v1/indicators/hostname/domain.com/passive_dns" | jq -r '.passive_dns[]?.hostname' | grep -E "^[a-zA-Z0-9.-]+\.domain\.com$" | sort -u | tee alienvault_subs.txt

@@ -1,6 +1,6 @@
 RECON Subdomain 🌐️
 -----------------------------
-# Basic recursive scan with all sources
+Basic recursive scan with all sources
 ```bash
 subfinder -d target.com -all -recursive -o subfinder.txt
 ```
